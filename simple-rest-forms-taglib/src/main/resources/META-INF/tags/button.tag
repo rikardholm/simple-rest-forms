@@ -1,1 +1,1 @@
-<button>Skicka</button>
+<button type="button" class="submit">Skicka</button>

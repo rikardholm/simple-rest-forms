@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Tools</title>
+    <link rel="stylesheet" type="text/css" href="/js/simple-rest-forms.css">
     <script src="/js/jquery-2.0.3.min.js"></script>
     <script src="/js/simple-rest-forms.js"></script>
 </head>

@@ -1,0 +1,11 @@
+div.success {
+    color: blue;
+}
+
+div.fail {
+    color: orange;
+}
+
+div.system-error {
+    color: red;
+}

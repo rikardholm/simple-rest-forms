@@ -1,13 +1,9 @@
 package simple.sample.servlet.controllers;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.NO_CONTENT;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.http.HttpStatus.*;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
@@ -37,4 +33,15 @@ public class EventController {
     public void store() {
     }
 
+    @RequestMapping("buggy")
+    @ResponseStatus(INTERNAL_SERVER_ERROR)
+    public void buggy() {}
+
+    @RequestMapping("unavailable")
+    @ResponseStatus(SERVICE_UNAVAILABLE)
+    public void unavailable() {}
+
+    @RequestMapping("unauthorized")
+    @ResponseStatus(UNAUTHORIZED)
+    public void unauthorized() {}
 }

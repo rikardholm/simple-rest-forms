@@ -5,20 +5,23 @@ $(function () {
 
         var form = $(event.target);
 
+        $('.simple-form-message').empty();
+
         $.post(form.attr('action'), form.serialize())
             .done(function (data) {
-                var message = form.find('.success');
+                var message = form.find('.simple-form-message.success');
 
                 message.html(message.data('default'));
+
+                form.trigger('reset');
             })
             .fail(function (data) {
                 var message;
 
-                if (data.status > 400) {
-                    message = form.find('.system-error');
-
+               if (data.status > 400) {
+                    message = form.find('.simple-form-message.system-error');
                 } else {
-                    message = form.find('.fail');
+                    message = form.find('.simple-form-message.fail');
                 }
 
                 if (typeof data.responseJSON === 'undefined') {

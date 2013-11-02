@@ -19,13 +19,15 @@ $(function () {
                 var message;
 
                if (data.status > 400) {
-                    message = form.find('.simple-form-message.system-error');
+                   message = form.find('.simple-form-message.system-error');
+                   message.html(message.data('default'));
                 } else {
-                    message = form.find('.simple-form-message.fail');
+                   message = form.find('.simple-form-message.fail');
+                   message.html(message.data('default'));
                 }
 
                 if (typeof data.responseJSON === 'undefined') {
-                    message.html(message.data('default'));
+
                 } else {
                     message.html(data.responseJSON.message);
                 }

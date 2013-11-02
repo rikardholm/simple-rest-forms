@@ -4,6 +4,6 @@ describe('Helloer', function() {
 
         var message = helloer.sayHello();
 
-        expect(message).toEqual('Hello!');
+        expect(message).toEqual('Hello');
     });
 });

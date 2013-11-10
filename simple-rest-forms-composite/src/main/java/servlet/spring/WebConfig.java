@@ -23,7 +23,8 @@ import static java.util.Arrays.asList;
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/js/*");
+        registry.addResourceHandler("/js/**").addResourceLocations("WEB-INF/javascript/*").setCachePeriod(0);
+        registry.addResourceHandler("/css/**").addResourceLocations("WEB-INF/css/*").setCachePeriod(0);
     }
 
     @Bean

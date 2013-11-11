@@ -3,25 +3,35 @@ define(function () {
     }
 
     ResponseTranslator.prototype.translate = function (jqxhr, defaultMessages) {
-
-        var message = {};
-
-        if (jqxhr.status === 204) {
-            message.status = 'ok';
-            message.content = defaultMessages.success;
-        } else if (jqxhr.status === 200) {
-            message.status = 'ok';
-            message.content = defaultMessages.success;
-        } else if (jqxhr.status === 503) {
-            message.status = 'unavailable';
-            message.content = defaultMessages.unavailable;
-        } else {
-            message.status = 'invalid';
-            message.content = defaultMessages.invalid;
+        switch (jqxhr.status) {
+            case 204:
+                return {
+                    status: 'ok',
+                    content: defaultMessages.success
+                };
+            case 200:
+                return {
+                    status: 'ok',
+                    content: defaultMessages.success
+                };
+            case 400:
+                return {
+                    status: 'invalid',
+                    content: defaultMessages.invalid
+                };
+            case 503:
+                return {
+                    status: 'unavailable',
+                    content: defaultMessages.unavailable
+                }
         }
-        return message;
 
-    }
+        return {
+            status: 'error',
+            content: defaultMessages.error
+        }
+    };
 
     return new ResponseTranslator();
-});
+})
+;

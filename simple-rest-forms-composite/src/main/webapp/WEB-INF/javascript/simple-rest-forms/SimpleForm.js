@@ -1,25 +1,33 @@
-define(['jquery'], function($) {
-    function SimpleForm(form) {
-        this.form = $(form);
-    }
+define(['jquery', 'simple-rest-forms/ResponseTranslator', 'simple-rest-forms/FormBinder','simple-rest-forms/FormFacade'], function ($, responseTranslator, formBinder, formFacade) {
+    (function ($) {
 
-    SimpleForm.prototype.success = function(message) {
-        this.form.children('.success').html(message);
-    };
+        $.fn.simpleRestForm = function () {
+            return this.each(function () {
+                var form = formFacade.of($(this));
 
-    SimpleForm.prototype.invalid = function(message) {
-        this.form.children('.invalid').html(message);
-    };
+                formBinder.bind(this, function (jqxhr) {
+                    var message = responseTranslator.translate(jqxhr, form.defaultMessages());
 
-    SimpleForm.prototype.clear = function() {
-        this.form.children('.success').add('.invalid').empty();
-    };
+                    switch (message.status) {
+                        case 'ok':
+                            form.success(message.content);
+                            break;
+                        case 'invalid':
+                            form.invalid(message.content);
+                            break;
+                        case 'unavailable':
+                            form.unavailable(message.content);
+                            break;
+                        case 'error':
+                            form.error(message.content);
+                            break;
+                        default:
+                            form.error(message.content);
+                    }
+                });
+            })
+        }
+    }($));
 
-    function SimpleFormCreator() {};
-
-    SimpleFormCreator.prototype.for = function(form) {
-        return new SimpleForm(form);
-    };
-
-    return new SimpleFormCreator();
+    return {};
 });

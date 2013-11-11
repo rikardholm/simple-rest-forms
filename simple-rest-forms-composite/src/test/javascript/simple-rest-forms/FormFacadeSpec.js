@@ -2,17 +2,17 @@ requirejs.config({
     paths: { jquery: 'jquery-2.0.3.min' }
 });
 
-define(['simple-rest-forms/SimpleForm', 'jquery'], function (simpleFormCreator, $) {
-    describe('SimpleForm module', function () {
-        it('should create a SimpleForm', function () {
-            var result = simpleFormCreator.for();
+define(['simple-rest-forms/FormFacade', 'jquery'], function (formFacade, $) {
+    describe('FormFacade module', function () {
+        it('should create a FormFacade', function () {
+            var result = formFacade.of($('<form></form>'));
 
-            expect(result.constructor.name).toEqual('SimpleForm');
+            expect(result.constructor.name).toEqual('FormFacade');
         });
     });
 
-    describe('SimpleForm instance', function () {
-        var target = simpleFormCreator.for();
+    describe('FormFacade instance', function () {
+        var target;
         var form;
 
         beforeEach(function () {
@@ -23,7 +23,7 @@ define(['simple-rest-forms/SimpleForm', 'jquery'], function (simpleFormCreator, 
             form = $('<form></form>');
             fixture.append(form);
 
-            target = simpleFormCreator.for(form.get(0));
+            target = formFacade.of(form.get(0));
         });
 
         afterEach(function() {

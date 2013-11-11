@@ -53,6 +53,21 @@ define(['simple-rest-forms/ResponseTranslator'], function (target) {
                     expect(result.content).toEqual(invalidMessage);
                 });
             });
+            describe('when receiving a 500 (Server Error)', function () {
+                var status = 500;
+
+                it('should return status "error"',function() {
+                    var result = target.translate({status: status}, {});
+
+                    expect(result.status).toEqual('error');
+                });
+
+                it('should return the default error message when the response has none', function () {
+                    var result = target.translate({status: status}, {error: errorMessage});
+
+                    expect(result.content).toEqual(errorMessage);
+                });
+            });
             describe('when receiving a 503 (Service Unavailable)', function () {
                 var status = 503;
 

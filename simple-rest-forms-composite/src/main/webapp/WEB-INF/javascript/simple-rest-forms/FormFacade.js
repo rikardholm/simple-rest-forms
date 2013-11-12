@@ -23,7 +23,7 @@ define(['jquery'], function ($) {
         this.form.find('.success')
             .add('.invalid')
             .add('.unavailable')
-            .add('error')
+            .add('.error')
             .empty();
     };
 
@@ -36,9 +36,7 @@ define(['jquery'], function ($) {
         }
     };
 
-    function FormFacadeCreator() {
-
-    }
+    function FormFacadeCreator() {}
 
     FormFacadeCreator.prototype.of = function (form) {
         return new FormFacade($(form));

@@ -9,16 +9,16 @@
 
     <tag-file>
         <name>button</name>
-        <path>/META-INF/tags/button.tag</path>
+        <path>/WEB-INF/tags/simple-rest-forms/button.tag</path>
     </tag-file>
 
     <tag-file>
         <name>input</name>
-        <path>/META-INF/tags/input.tag</path>
+        <path>/WEB-INF/tags/simple-rest-forms/input.tag</path>
     </tag-file>
     
     <tag-file>
         <name>form</name>
-        <path>/META-INF/tags/form.tag</path>
+        <path>/WEB-INF/tags/simple-rest-forms/form.tag</path>
     </tag-file>
 </taglib>

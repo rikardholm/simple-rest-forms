@@ -1,4 +1,4 @@
-<%@ taglib prefix="form" tagdir="/WEB-INF/tags/simple-rest-forms" %>
+<%@ taglib prefix="form" uri="http://simple-rest-forms" %>
 <!DOCTYPE html>
 <html>
 <head>

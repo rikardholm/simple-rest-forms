@@ -24,12 +24,9 @@
 
     <dependencies>
         <!-- Siblings -->
-        <dependency>
-            <groupId>simple-rest-forms</groupId>
-            <artifactId>simple-rest-forms-taglib</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
+
+        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>

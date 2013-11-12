@@ -15,8 +15,7 @@
     </properties>
 
     <modules>
-        <module>simple-rest-forms-javascript</module>
-        <module>simple-rest-forms-taglib</module>
+        <module>simple-rest-forms-composite</module>
         <module>test-web-app</module>
     </modules>
 

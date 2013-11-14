@@ -1,5 +1,5 @@
 requirejs.config({
-    paths: { jquery: 'jquery-2.0.3.min' }
+    paths: { jquery: 'jquery-2.0.3' }
 });
 
 define(['simple-rest-forms/FormFacade', 'jquery'], function (formFacade, $) {

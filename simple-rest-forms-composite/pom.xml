@@ -120,14 +120,38 @@
                 </executions>
                 <configuration>
                     <descriptors>
-                        <descriptor>src/assemble/taglib.xml</descriptor>
+                        <descriptor>src/build/assemble/taglib.xml</descriptor>
                     </descriptors>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.mozilla.javascript.tools.shell.Main</mainClass>
+                    <includePluginDependencies>true</includePluginDependencies>
+                    <arguments>
+                        <argument>${project.basedir}/src/build/rjs/r.js</argument>
+                        <argument>-o</argument>
+                        <argument>${project.basedir}/src/build/rjs/config.js</argument>
+                    </arguments>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mozilla</groupId>
+                        <artifactId>rhino</artifactId>
+                        <version>1.7R4</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.google.javascript</groupId>
+                        <artifactId>closure-compiler</artifactId>
+                        <version>v20131014</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
-
 
     <dependencies>
         <dependency>

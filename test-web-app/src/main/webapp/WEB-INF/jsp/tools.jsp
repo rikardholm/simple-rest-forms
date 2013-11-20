@@ -4,7 +4,7 @@
 <head>
     <title>Tools</title>
     <link rel="stylesheet" type="text/css" href="/js/simple-rest-forms.css">
-    <script data-main="/js/main" src="/js/require.js"></script>
+    <script data-main="/js/main-development" src="/js/require.js"></script>
 </head>
 <body>
 <form:form action="/event/hello">

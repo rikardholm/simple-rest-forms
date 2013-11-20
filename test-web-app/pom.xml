@@ -30,6 +30,12 @@
             <classifier>taglib</classifier>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>simple-rest-forms</groupId>
+            <artifactId>simple-rest-forms-composite</artifactId>
+            <classifier>javascript</classifier>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- Spring -->
         <dependency>

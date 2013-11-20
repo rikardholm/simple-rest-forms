@@ -16,6 +16,7 @@
         <phantomjs.path>${project.parent.basedir}/phantomjs-1.9.2-macosx/bin/phantomjs</phantomjs.path>
         <tld.name>simple-rest-forms-taglib.tld</tld.name>
         <taglib.working.directory>${project.build.directory}/taglib-work</taglib.working.directory>
+        <rjs.working.directory>${project.build.directory}/rjs-work</rjs.working.directory>
     </properties>
 
     <build>
@@ -62,7 +63,7 @@
                 <version>2.6</version>
                 <executions>
                     <execution>
-                        <id>copy-resources</id>
+                        <id>copy-taglib-resources</id>
                         <phase>validate</phase>
                         <goals>
                             <goal>copy-resources</goal>
@@ -83,6 +84,25 @@
                                         <include>${tld.name}</include>
                                     </includes>
                                     <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-javascript-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${rjs.working.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/webapp/WEB-INF/javascript</directory>
+                                    <includes>
+                                        <include>simple-rest-forms/**/*</include>
+                                    </includes>
+                                    <filtering>false</filtering>
                                 </resource>
                             </resources>
                         </configuration>
@@ -121,6 +141,7 @@
                 <configuration>
                     <descriptors>
                         <descriptor>src/build/assemble/taglib.xml</descriptor>
+                        <descriptor>src/build/assemble/javascript.xml</descriptor>
                     </descriptors>
                 </configuration>
             </plugin>
@@ -128,6 +149,14 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <mainClass>org.mozilla.javascript.tools.shell.Main</mainClass>
                     <includePluginDependencies>true</includePluginDependencies>

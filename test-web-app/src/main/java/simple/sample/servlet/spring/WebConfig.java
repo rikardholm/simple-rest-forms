@@ -3,19 +3,11 @@ package simple.sample.servlet.spring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
-import simple.sample.servlet.controllers.EventController;
-
-import java.util.Arrays;
-
-import static java.util.Arrays.asList;
 
 @Configuration
 @EnableWebMvc
@@ -23,7 +15,8 @@ import static java.util.Arrays.asList;
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/js/*");
+        registry.addResourceHandler("/js/**")
+                .addResourceLocations("classpath:/javascript/*");
     }
 
     @Bean

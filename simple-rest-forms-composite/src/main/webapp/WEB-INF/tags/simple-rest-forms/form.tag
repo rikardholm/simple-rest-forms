@@ -1,4 +1,6 @@
+<%@ tag pageEncoding="UTF-8" %>
 <%@ attribute name="action" required="true" rtexprvalue="true" %>
+
 <form method="post" action="${action}" class="simple-form">
     <fieldset>
         <div class="success" data-default="Ändringen har sparats"></div>

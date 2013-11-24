@@ -1,8 +1,9 @@
-package simple.sample.servlet.spring;
+package servlet.spring;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
+import servlet.spring.WebConfig;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;

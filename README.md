@@ -10,3 +10,5 @@ TODO
  * set id of form, deterministic of input fields
    ** form context for page?
  * selenium
+ * Client-side validation
+ * input element message

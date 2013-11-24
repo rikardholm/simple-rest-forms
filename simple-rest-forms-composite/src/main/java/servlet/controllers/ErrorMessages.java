@@ -1,4 +1,4 @@
-package simple.sample.servlet.controllers;
+package servlet.controllers;
 
 public class ErrorMessages {
     private String field;

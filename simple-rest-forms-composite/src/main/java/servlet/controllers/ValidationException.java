@@ -1,4 +1,4 @@
-package simple.sample.servlet.controllers;
+package servlet.controllers;
 
 public class ValidationException extends Exception {
     public ValidationException(String message) {

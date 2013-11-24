@@ -8,4 +8,5 @@ TODO
  * non-submit button + test page
  * Multiple input fields in different forms with same name
  * set id of form, deterministic of input fields
+   ** form context for page?
  * selenium
